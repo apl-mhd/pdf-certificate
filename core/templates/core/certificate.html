@@ -1,0 +1,67 @@
+{% load qr_code %}
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    @page {
+        size: letter landscape;
+        margin: 2cm;
+    }
+    #qr{
+        display: inline-block;
+    }
+    #qr img{
+        height: 150px;
+        width: 150px;
+    }
+  
+    .logo{
+        height: 100px;
+        width: 100px;
+        margin-right: 0;
+
+    }
+</style>
+</head>
+<body>
+    <div style="width:800px; height:600px; padding:20px; text-align:center; border: 10px solid #787878">
+
+        
+        
+<div style="width:750px; height:550px; padding:20px; text-align:center; border: 5px solid #787878">
+        
+    <div id="qr">
+        {% qr_from_text info  size="m" image_format="png" error_correction="L" %}
+    </div>
+        
+
+       <span style="font-size:50px; font-weight:bold">Certificate of Completion</span>
+       <br><br>
+       <span style="font-size:25px"><i>This is to certify that</i></span>
+       <br><br>
+       <span style="font-size:30px"><b>{{student.name }}</b></span><br/><br/>
+       <span style="font-size:25px"><i>has completed the course</i></span> <br/><br/>
+       <span style="font-size:30px">Web Development</span> <br/><br/>
+       <span style="font-size:20px">with score of <b>26%</b></span> <br/><br/><br/><br/>
+       <span style="font-size:25px"><i>Dated</i></span><br> 
+        <span style="font-size:30px"> April 18, 2022</span>
+
+         <div id="qr">
+        {% qr_from_text info  size="m" image_format="png" error_correction="L" %}
+    </div>
+
+      
+        <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Wikimedia-logo.png" alt="">
+
+</div>
+</div>
+</body>
+</html>
